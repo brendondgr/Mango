@@ -1,0 +1,9 @@
+django
+celery
+redis
+psycopg2-binary
+python-dotenv
+langgraph
+langchain
+langchain-community
+openai
