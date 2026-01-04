@@ -3,6 +3,7 @@ celery
 redis
 psycopg2-binary
 python-dotenv
+uvicorn
 langgraph
 langchain
 langchain-community
