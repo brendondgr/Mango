@@ -4,6 +4,7 @@ redis
 psycopg2-binary
 python-dotenv
 uvicorn
+whitenoise
 langgraph
 langchain
 langchain-community

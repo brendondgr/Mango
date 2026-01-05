@@ -1,4 +1,6 @@
+{% load static %}
 {% include 'parts/header.html' %}
+
 
     <!-- Main Content Area -->
     <main class="pt-20 px-4">
@@ -37,8 +39,9 @@
     {% include 'parts/dropdown.html' %}
 
     <!-- JavaScript -->
-    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
+    <script src="{% static 'js/config.js' %}"></script>
+    <script src="{% static 'js/dropdown.js' %}"></script>
+
     
     <!-- Initialize Lucide Icons -->
     <script>

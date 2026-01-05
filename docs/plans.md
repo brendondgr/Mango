@@ -53,46 +53,47 @@ project_root/
 │   ├── wsgi.py                 # WSGI server config
 │   └── celery.py               # Celery app initialization
 │
-└── apps/                       # Application Logic
-    ├── core/                   # Shared Utilities
-    │   ├── __init__.py
-    │   ├── models.py           # Abstract base models (e.g., TimeStampedModel)
-    │   └── utils.py            # Generic helpers
-    │
-    ├── web/                    # The Frontend / User Interface
-    │   ├── __init__.py
-    │   ├── views.py            # HTTP Handlers (Chat UI)
-    │   ├── urls.py             # Web-specific routes
-    │   ├── models.py           # ChatHistory, UserProfile
-    │   ├── forms.py            # Input validation
-    │   ├── templates/          # HTML files (Django Templates)
-    │   │   ├── base.html
-    │   │   └── chat/
-    │   │       └── index.html
-    │   └── static/             # CSS, JS, Images
-    │       ├── css/
-    │       └── js/
-    │
-    └── agents/                 # The Intelligence Layer (LangGraph)
-        ├── __init__.py
-        ├── models.py           # Agent specific DB models (if needed)
-        ├── tasks.py            # Celery Tasks (The bridge between Web & Agents)
-        ├── state.py            # Shared State Schema (TypedDict definitions)
-        │
-        ├── services/           # External Service Connectors
-        │   ├── __init__.py
-        │   └── llm_connector.py # Wrapper for your Custom LLM Library
-        │
-        ├── tools/              # Actionable Capabilities
-        │   ├── __init__.py
-        │   ├── search_tools.py # Functions for Web Search
-        │   └── email_tools.py  # Functions for Gmail/Outlook APIs
-        │
-        └── graphs/             # Agent Logic Definitions
-            ├── __init__.py
-            ├── controller.py   # Main Router Graph
-            ├── research.py     # Research Sub-Graph
-            └── email.py        # Email Sub-Graph
+├── web/                        # Frontend Assets (Templates & Static)
+│   ├── templates/              # HTML files (Django Templates)
+│   │   ├── body.html           # Main UI Wrapper
+│   │   └── parts/              # Reusable components (Header, Dropdown)
+│   └── static/                 # CSS, JS, Images
+│       ├── css/
+│       └── js/
+│
+├── apps/                       # Application Logic
+│   ├── core/                   # Shared Utilities
+│   │   ├── __init__.py
+│   │   ├── models.py           # Abstract base models
+│   │   └── utils.py            # Generic helpers
+│   │
+│   ├── web/                    # The Web App View Logic
+│   │   ├── __init__.py
+│   │   ├── views.py            # HTTP Handlers (Index, API)
+│   │   ├── urls.py             # Web-specific routes
+│   │   ├── models.py           # Application specific models
+│   │   ├── forms.py            # Input validation
+│   │
+│   └── agents/                 # The Intelligence Layer (LangGraph)
+│       ├── __init__.py
+│       ├── models.py           # Agent specific DB models
+│       ├── tasks.py            # Celery Tasks
+│       ├── state.py            # Shared State Schema
+│       │
+│       ├── services/           # External Service Connectors
+│       │   ├── __init__.py
+│       │   └── llm_connector.py # Wrapper for Custom LLM Library
+│       │
+│       ├── tools/              # Actionable Capabilities
+│       │   ├── __init__.py
+│       │   ├── search_tools.py # Web Search Functions
+│       │   └── email_tools.py  # Email API Functions
+│       │
+│       └── graphs/             # Agent Logic Definitions
+│           ├── __init__.py
+│           ├── controller.py   # Main Router Graph
+│           ├── research.py     # Research Sub-Graph
+│           └── email.py        # Email Sub-Graph
 ```
 
 ---

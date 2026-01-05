@@ -1,0 +1,281 @@
+/* Dropdown CSS - Styles for LLM Server Control Dropdown */
+
+/* Custom Scrollbar for Dropdown */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(71, 85, 105, 0.8);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.9);
+}
+
+/* Dropdown Animation */
+#llm-dropdown {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+#llm-dropdown.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+#llm-dropdown:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideDown 0.2s ease-out;
+}
+
+/* Toggle Switch Styling */
+.toggle-checkbox {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-checkbox:checked {
+    border-color: #6366f1;
+    background-color: #6366f1;
+}
+
+.toggle-label {
+    transition: background-color 0.2s ease;
+}
+
+.toggle-checkbox:checked+.toggle-label {
+    background-color: #6366f1;
+}
+
+/* Slider Customization */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #6366f1 0%, #4f46e5 100%);
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Webkit Slider Thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox Slider Thumb */
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+span {
+    color: white;
+}
+
+/* Advanced Settings Chevron Animation */
+#advanced-chevron {
+    transition: transform 0.3s ease;
+}
+
+#advanced-chevron.rotated {
+    transform: rotate(180deg);
+}
+
+/* Advanced Settings Panel */
+#llm-advanced-settings {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+#llm-advanced-settings:not(.hidden) {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+/* Status Indicator Animation */
+#llm-header-status {
+    transition: background-color 0.3s ease;
+}
+
+#llm-header-status.status-idle {
+    background-color: #64748b;
+    /* slate-500 */
+}
+
+#llm-header-status.status-starting {
+    background-color: #f59e0b;
+    /* amber-500 */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#llm-header-status.status-running {
+    background-color: #10b981;
+    /* green-500 */
+}
+
+#llm-header-status.status-stopping {
+    background-color: #f59e0b;
+    /* amber-500 */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#llm-header-status.status-error {
+    background-color: #ef4444;
+    /* red-500 */
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Button Hover Effects */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Error Message Animation */
+#llm-error-message {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#llm-error-message:not(.hidden) {
+    max-height: 100px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #llm-dropdown {
+        max-height: calc(100vh - 4rem);
+    }
+
+    /* Larger touch targets on mobile */
+    button {
+        min-height: 44px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 22px;
+        height: 22px;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    /* Additional dark mode specific styles if needed */
+}
+
+/* Backdrop Blur Support */
+@supports (backdrop-filter: blur(10px)) {
+    #llm-dropdown {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+    #llm-dropdown {
+        background-color: rgba(15, 23, 42, 0.98);
+    }
+}
+
+/* Focus Visible for Accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* Smooth Transitions for Form Elements */
+select,
+input[type="text"],
+input[type="number"] {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:hover,
+input[type="text"]:hover,
+input[type="number"]:hover {
+    border-color: #6366f1;
+}
