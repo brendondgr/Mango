@@ -1,0 +1,53 @@
+{
+    "model_directories": {
+        "language": "D:\\Models\\Language",
+        "voice": "D:\\Models\\Voice"
+    },
+    "language_models": [
+        {
+            "file_name": "1.5B-DeepSeek-R1-Q6KL.gguf",
+            "nickname": "Deep Seek 1.5B Q6KL",
+            "parameters_billions": 1.5
+        },
+        {
+            "file_name": "18.4B-Dark-Champion-IQ4XS.gguf",
+            "nickname": "Dark Champion 18.4B Q4XS",
+            "parameters_billions": 18.4
+        },
+        {
+            "file_name": "20B-gpt-oss-Q4KM.gguf",
+            "nickname": "GPT OSS 20B Q4KM",
+            "parameters_billions": 20.0
+        },
+        {
+            "file_name": "0.35B-granite-4.0-h-UD-Q8KXL.gguf",
+            "nickname": "Granite 4.0 Q8XL",
+            "parameters_billions": 0.35
+        },
+        {
+            "file_name": "8B-Lumimaid-v0.2-Q4KM.gguf",
+            "nickname": "Luminaid v0.2 8B Q4KM",
+            "parameters_billions": 8
+        },
+        {
+            "file_name": "12B-MN-Violet-Lotus-Q4KS.gguf",
+            "nickname": "Violet Lotus 12B Q4KS",
+            "parameters_billions": 12
+        }
+    ],
+    "voice_models": [],
+    "frontend_defaults": {
+        "model": "20B-gpt-oss-Q4KM.gguf",
+        "streaming": true,
+        "context_size": 15,
+        "max_tokens": 13,
+        "temperature": 0.1,
+        "repeat_penalty": 1.2,
+        "host": "127.0.0.1",
+        "port": 8080,
+        "compute_mode": "auto",
+        "gpu_layers": 999,
+        "threads": 0,
+        "advanced_settings_open": false
+    }
+}
